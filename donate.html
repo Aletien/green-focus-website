@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Donate | Green Focus Organization</title>
+
+    <meta name="description" content="Donate to Green Focus Organization and support environmental protection, climate resilience, and sustainable livelihoods in Uganda's Rwenzori Region.">
+
+    <link rel="canonical" href="https://www.greenfocusorg.ug/donate.html">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#064e3b">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="48x48" href="assets/images/favicon-48x48.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+    <link rel="manifest" href="manifest.webmanifest">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body data-page="donate" class="bg-white text-gray-700 antialiased flex flex-col min-h-screen">
+
+    <main class="page-transition">
+
+        <header class="bg-emerald-900 py-20 text-center text-white">
+            <div class="max-w-4xl mx-auto px-4">
+                <h1 class="font-heading text-4xl md:text-5xl font-bold mb-4">
+                    Donate
+                </h1>
+
+                <p class="text-emerald-100">
+                    Your support helps protect the environment and strengthen community resilience in the Rwenzori Region.
+                </p>
+
+                <div class="flex justify-center gap-2 text-sm mt-6">
+                    <a href="index.html" class="hover:text-amber-400 transition">Home</a>
+                    <span>/</span>
+                    <span class="text-amber-400">Donate</span>
+                </div>
+            </div>
+        </header>
+
+        <section class="py-20 bg-emerald-50">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-5 gap-12">
+
+                <div class="lg:col-span-2 space-y-8">
+
+                    <div class="bg-white p-8 rounded-3xl shadow-lg">
+                        <h2 class="font-heading text-3xl font-bold text-emerald-900 mb-4">
+                            Where Your Support Goes
+                        </h2>
+
+                        <p class="text-gray-600 mb-6">
+                            Donations support practical community projects in Kasese, Bundibugyo, Ntoroko, and Bunyangabu.
+                        </p>
+
+                        <div id="donation-impacts" class="space-y-5"></div>
+                    </div>
+
+                    <div class="bg-emerald-900 text-white p-8 rounded-3xl shadow-lg">
+                        <h3 class="font-heading text-2xl font-bold mb-4">Other Ways to Give</h3>
+
+                        <ul class="space-y-4 text-emerald-100 text-sm">
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-building-columns text-amber-500 mt-1"></i>
+                                <span>Bank transfer details can be shared upon request through contact.</span>
+                            </li>
+
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-box-open text-amber-500 mt-1"></i>
+                                <span>In-kind donations: tree seedlings, tools, educational materials, and volunteer equipment.</span>
+                            </li>
+
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-handshake text-amber-500 mt-1"></i>
+                                <span>Organizations can partner with GFO through sponsorship or program support.</span>
+                            </li>
+                        </ul>
+
+                        <a href="contact.html?subject=Donation%20Inquiry"
+                           class="mt-6 inline-flex items-center justify-center bg-amber-600 hover:bg-amber-700 text-white px-6 py-3 rounded-xl font-semibold transition">
+                            Contact for Donation Options
+                        </a>
+                    </div>
+
+                </div>
+
+                <div class="lg:col-span-3 bg-white p-8 rounded-3xl shadow-xl border-t-4 border-amber-600">
+                    <h2 class="font-heading text-3xl font-bold text-emerald-900 mb-4 text-center">
+                        Make a Donation
+                    </h2>
+
+                    <p id="donation-cause" class="hidden text-center text-emerald-600 font-semibold mb-6"></p>
+
+                    <form data-form="donation" class="space-y-6">
+
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <button type="button"
+                                    data-donation-frequency="One-Time"
+                                    class="border-2 py-3 rounded-xl font-semibold transition bg-emerald-600 text-white border-emerald-600">
+                                One-Time Donation
+                            </button>
+
+                            <button type="button"
+                                    data-donation-frequency="Monthly"
+                                    class="border-2 py-3 rounded-xl font-semibold transition bg-white text-gray-700 border-gray-300 hover:border-emerald-600">
+                                Monthly Donation
+                            </button>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-3">Select Amount</label>
+
+                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                                <button type="button"
+                                        data-donation-amount="25"
+                                        class="border-2 py-3 rounded-xl font-bold transition bg-white text-emerald-900 border-gray-300 hover:border-emerald-600">
+                                    $25
+                                </button>
+
+                                <button type="button"
+                                        data-donation-amount="50"
+                                        class="border-2 py-3 rounded-xl font-bold transition bg-emerald-600 text-white border-emerald-600">
+                                    $50
+                                </button>
+
+                                <button type="button"
+                                        data-donation-amount="100"
+                                        class="border-2 py-3 rounded-xl font-bold transition bg-white text-emerald-900 border-gray-300 hover:border-emerald-600">
+                                    $100
+                                </button>
+
+                                <button type="button"
+                                        data-donation-amount="250"
+                                        class="border-2 py-3 rounded-xl font-bold transition bg-white text-emerald-900 border-gray-300 hover:border-emerald-600">
+                                    $250
+                                </button>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2" for="custom-amount">Custom Amount ($)</label>
+
+                            <input type="number"
+                                   id="custom-amount"
+                                   min="1"
+                                   class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-emerald-600 focus:border-emerald-600 outline-none transition"
+                                   placeholder="Enter custom amount">
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <input type="text"
+                                   required
+                                   aria-label="First name"
+                                   placeholder="First Name"
+                                   class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-emerald-600 outline-none transition">
+
+                            <input type="text"
+                                   required
+                                   aria-label="Last name"
+                                   placeholder="Last Name"
+                                   class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-emerald-600 outline-none transition">
+                        </div>
+
+                        <input type="email"
+                               required
+                               aria-label="Email address"
+                               placeholder="Email Address"
+                               class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-emerald-600 outline-none transition">
+
+                        <button type="submit"
+                                class="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-4 rounded-xl text-lg transition shadow-lg">
+                            <i class="fa-solid fa-heart mr-2"></i>
+                            Complete Donation
+                        </button>
+
+                        <p id="donation-success" data-success class="hidden text-emerald-600 font-semibold text-center"></p>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <script src="assets/js/layout.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>

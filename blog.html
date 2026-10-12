@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Blog & News | Green Focus Organization</title>
+
+    <meta name="description" content="Read stories, updates, and insights on environment, climate resilience, livelihoods, and community action from Green Focus Organization.">
+
+    <link rel="canonical" href="https://www.greenfocusorg.ug/blog.html">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#064e3b">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="48x48" href="assets/images/favicon-48x48.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+    <link rel="manifest" href="manifest.webmanifest">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body data-page="blog" class="bg-white text-gray-700 antialiased flex flex-col min-h-screen">
+
+    <main class="page-transition">
+
+        <header class="bg-emerald-900 py-20 text-center text-white">
+            <div class="max-w-4xl mx-auto px-4">
+                <h1 class="font-heading text-4xl md:text-5xl font-bold mb-4">
+                    Blog & News
+                </h1>
+
+                <p class="text-emerald-100">
+                    Stories, updates, and insights from our work in environmental protection and community resilience.
+                </p>
+
+                <div class="flex justify-center gap-2 text-sm mt-6">
+                    <a href="index.html" class="hover:text-amber-400 transition">Home</a>
+                    <span>/</span>
+                    <span class="text-amber-400">Blog</span>
+                </div>
+            </div>
+        </header>
+
+        <section class="py-20 bg-emerald-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                <div id="featured-post"></div>
+
+                <div id="blog-filters" class="flex flex-wrap justify-center gap-3 mb-12"></div>
+
+                <div id="blog-grid" class="grid md:grid-cols-2 xl:grid-cols-3 gap-8"></div>
+
+                <div class="mt-16 bg-emerald-900 rounded-3xl p-10 text-center text-white">
+                    <h2 class="font-heading text-3xl font-bold mb-4">
+                        Subscribe to GFO Updates
+                    </h2>
+
+                    <p class="text-emerald-100 max-w-2xl mx-auto mb-8">
+                        Receive news, event announcements, and community impact stories from the Rwenzori Region.
+                    </p>
+
+                    <form data-form="newsletter" class="max-w-xl mx-auto flex flex-col sm:flex-row gap-3">
+                        <input type="email"
+                               required
+                               aria-label="Email address"
+                               placeholder="Enter your email address"
+                               class="flex-1 px-5 py-3 rounded-xl bg-emerald-800 border border-emerald-700 text-white placeholder-emerald-200 focus:outline-none focus:border-amber-500">
+
+                        <button type="submit"
+                                class="bg-amber-600 hover:bg-amber-700 text-white px-7 py-3 rounded-xl font-bold transition">
+                            Subscribe
+                        </button>
+                    </form>
+
+                    <p data-success class="hidden mt-4 text-amber-400 font-semibold">
+                        Thank you for subscribing to Green Focus Organization updates.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <script src="assets/js/layout.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>
