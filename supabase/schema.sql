@@ -1,0 +1,22 @@
+-- Run in Supabase SQL Editor. Never expose service_role keys in browser code.
+create extension if not exists pgcrypto;
+create table if not exists public.site_content(id uuid primary key default gen_random_uuid(),content_key text not null unique check(content_key ~ '^[A-Za-z0-9._-]+$'),page text not null default 'global',content_type text not null default 'text' check(content_type in ('text','image','link','background')),content_value text not null default '',published boolean not null default false,created_at timestamptz not null default now(),updated_at timestamptz not null default now());
+alter table public.site_content enable row level security;
+revoke all on public.site_content from anon,authenticated; grant select on public.site_content to anon,authenticated; grant insert,update,delete on public.site_content to authenticated;
+drop policy if exists "Read published or admin content" on public.site_content;
+create policy "Read published or admin content" on public.site_content for select to anon,authenticated using(published=true or (auth.jwt()->'app_metadata'->>'role')='admin');
+drop policy if exists "Admins insert content" on public.site_content;
+create policy "Admins insert content" on public.site_content for insert to authenticated with check((auth.jwt()->'app_metadata'->>'role')='admin');
+drop policy if exists "Admins update content" on public.site_content;
+create policy "Admins update content" on public.site_content for update to authenticated using((auth.jwt()->'app_metadata'->>'role')='admin') with check((auth.jwt()->'app_metadata'->>'role')='admin');
+drop policy if exists "Admins delete content" on public.site_content;
+create policy "Admins delete content" on public.site_content for delete to authenticated using((auth.jwt()->'app_metadata'->>'role')='admin');
+insert into storage.buckets(id,name,public,file_size_limit,allowed_mime_types) values('site-media','site-media',true,8388608,array['image/jpeg','image/png','image/webp','image/gif']) on conflict(id) do update set public=true,file_size_limit=8388608,allowed_mime_types=array['image/jpeg','image/png','image/webp','image/gif'];
+drop policy if exists "Public reads site media" on storage.objects;
+create policy "Public reads site media" on storage.objects for select to public using(bucket_id='site-media');
+drop policy if exists "Admins upload site media" on storage.objects;
+create policy "Admins upload site media" on storage.objects for insert to authenticated with check(bucket_id='site-media' and (auth.jwt()->'app_metadata'->>'role')='admin');
+drop policy if exists "Admins update site media" on storage.objects;
+create policy "Admins update site media" on storage.objects for update to authenticated using(bucket_id='site-media' and (auth.jwt()->'app_metadata'->>'role')='admin') with check(bucket_id='site-media' and (auth.jwt()->'app_metadata'->>'role')='admin');
+drop policy if exists "Admins delete site media" on storage.objects;
+create policy "Admins delete site media" on storage.objects for delete to authenticated using(bucket_id='site-media' and (auth.jwt()->'app_metadata'->>'role')='admin');
