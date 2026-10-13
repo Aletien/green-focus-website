@@ -1,0 +1,22 @@
+{
+    "name": "Green Focus Organization",
+    "short_name": "Green Focus",
+    "description": "Green Focus Organization works entirely in Uganda on environmental protection, climate resilience, livelihoods, and community development.",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#064e3b",
+    "lang": "en",
+    "icons": [
+        {
+            "src": "assets/images/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "assets/images/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

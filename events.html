@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Events | Green Focus Organization</title>
+
+    <meta name="description" content="Explore upcoming and past Green Focus Organization events, including tree planting, climate training, youth forums, and community resilience activities.">
+
+    <link rel="canonical" href="https://www.greenfocusorg.ug/events.html">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#064e3b">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="48x48" href="assets/images/favicon-48x48.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+    <link rel="manifest" href="manifest.webmanifest">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body data-page="events" class="bg-white text-gray-700 antialiased flex flex-col min-h-screen">
+
+    <main class="page-transition">
+
+        <header class="bg-emerald-900 py-20 text-center text-white">
+            <div class="max-w-4xl mx-auto px-4">
+                <h1 class="font-heading text-4xl md:text-5xl font-bold mb-4">
+                    Events
+                </h1>
+
+                <p class="text-emerald-100">
+                    Community events, training sessions, volunteer activities, and climate action forums.
+                </p>
+
+                <div class="flex justify-center gap-2 text-sm mt-6">
+                    <a href="index.html" class="hover:text-amber-400 transition">Home</a>
+                    <span>/</span>
+                    <span class="text-amber-400">Events</span>
+                </div>
+            </div>
+        </header>
+
+        <section class="py-20 bg-emerald-50">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                <div class="flex justify-center mb-12">
+                    <div class="bg-white p-1 rounded-xl shadow inline-flex flex-wrap">
+                        <button data-event-tab="upcoming"
+                                class="px-6 sm:px-8 py-3 rounded-lg font-semibold transition bg-emerald-600 text-white">
+                            Upcoming Events
+                        </button>
+
+                        <button data-event-tab="past"
+                                class="px-6 sm:px-8 py-3 rounded-lg font-semibold transition text-gray-600 hover:text-emerald-600">
+                            Past Events
+                        </button>
+                    </div>
+                </div>
+
+                <div data-event-panel="upcoming" id="upcoming-events" class="space-y-8"></div>
+
+                <div data-event-panel="past" id="past-events" class="hidden space-y-8"></div>
+
+                <div class="mt-16 bg-emerald-900 rounded-3xl p-10 text-center text-white">
+                    <h2 class="font-heading text-3xl font-bold mb-4">
+                        Want to Host an Event With GFO?
+                    </h2>
+
+                    <p class="text-emerald-100 max-w-2xl mx-auto mb-8">
+                        We partner with schools, youth groups, local leaders, community organizations, and volunteers.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row justify-center gap-4">
+                        <a href="contact.html?subject=Event%20Partnership"
+                           class="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-full font-bold transition">
+                            Propose an Event
+                        </a>
+
+                        <a href="donate.html"
+                           class="bg-white hover:bg-gray-100 text-emerald-900 px-8 py-3 rounded-full font-bold transition">
+                            Support Events
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <script src="assets/js/layout.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>
