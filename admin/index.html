@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#064e3b">
+  <title>Admin Dashboard | Green Focus Organization</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <div id="setup-warning" class="setup-warning hidden"></div>
+  <section id="login-view" class="login-shell">
+    <div class="login-card">
+      <a class="brand" href="../index.html"><span class="brand-mark">GF</span><span><strong>Green Focus</strong><small>Organization CMS</small></span></a>
+      <p class="eyebrow">ADMINISTRATION</p>
+      <h1>Welcome back</h1>
+      <p class="muted">Sign in with an authorized administrator account to manage website content.</p>
+      <form id="login-form">
+        <label for="email">Email address</label>
+        <input id="email" type="email" autocomplete="username" required placeholder="admin@example.org">
+        <label for="password">Password</label>
+        <input id="password" type="password" autocomplete="current-password" required placeholder="Your password">
+        <button class="btn primary full" type="submit">Sign in securely <span>→</span></button>
+        <p id="login-message" class="message" role="status"></p>
+      </form>
+      <p class="footnote">Access is restricted to approved GFO administrators.</p>
+    </div>
+  </section>
+
+  <div id="app-view" class="app-shell hidden">
+    <aside class="sidebar">
+      <a class="brand sidebar-brand" href="../index.html"><span class="brand-mark">GF</span><span><strong>Green Focus</strong><small>Content manager</small></span></a>
+      <p class="nav-label">WORKSPACE</p>
+      <button class="nav-item active" data-view="content"><span>▤</span> Website content</button>
+      <button class="nav-item" data-view="media"><span>▧</span> Media uploads</button>
+      <a class="nav-item" href="../index.html" target="_blank" rel="noopener"><span>↗</span> View website</a>
+      <div class="sidebar-bottom"><span class="status-dot"></span> Secure session <button id="sign-out" class="sign-out">Sign out</button></div>
+    </aside>
+    <main class="main">
+      <header class="topbar"><div><p class="eyebrow">GREEN FOCUS ORGANIZATION</p><h1 id="view-title">Website content</h1></div><div class="user-chip"><span class="avatar">A</span><span><strong>Administrator</strong><small id="user-email"></small></span></div></header>
+      <section id="content-view" class="view">
+        <div class="welcome-row"><div><h2>Manage your website</h2><p class="muted">Edit content values connected to your public pages. Your original layout and styles remain unchanged.</p></div><button id="new-content" class="btn primary">＋ Add content</button></div>
+        <div class="stats-grid"><article class="stat-card"><span class="stat-icon">▤</span><p>Content entries</p><strong id="content-count">0</strong><small>Saved in your CMS</small></article><article class="stat-card"><span class="stat-icon green">✓</span><p>Published</p><strong id="published-count">0</strong><small>Visible on the website</small></article><article class="stat-card"><span class="stat-icon amber">◷</span><p>Drafts</p><strong id="draft-count">0</strong><small>Not shown publicly</small></article></div>
+        <div class="panel">
+          <div class="panel-head"><div><h3>Content library</h3><p class="muted">Use a unique key for each editable item, for example <code>home.hero.title</code>.</p></div><input id="content-search" class="search" type="search" placeholder="Search content…"></div>
+          <div class="table-wrap"><table><thead><tr><th>Content key</th><th>Page</th><th>Type</th><th>Status</th><th>Last updated</th><th></th></tr></thead><tbody id="content-rows"><tr><td colspan="6" class="empty">Loading content…</td></tr></tbody></table></div>
+          <p id="content-message" class="message" role="status"></p>
+        </div>
+        <div class="tip-card"><span>✦</span><div><strong>How content appears on your site</strong><p>In the HTML, an element needs a matching <code>data-cms-key</code> attribute. See <code>CMS_SETUP.md</code> for setup and examples.</p></div></div>
+      </section>
+      <section id="media-view" class="view hidden">
+        <div class="welcome-row"><div><h2>Media library</h2><p class="muted">Upload images to Supabase Storage and copy their public URLs into image content entries.</p></div></div>
+        <div class="panel upload-panel"><div class="upload-icon">↑</div><h3>Upload a website image</h3><p class="muted">JPG, PNG, WebP or GIF. Keep images optimized for faster page loads.</p><form id="upload-form"><label for="media-file" class="file-label">Choose image</label><input id="media-file" type="file" accept="image/jpeg,image/png,image/webp,image/gif" required><label for="media-alt">File name (optional)</label><input id="media-alt" type="text" maxlength="100" placeholder="e.g. tree-planting-2026"><button class="btn primary" type="submit">Upload image</button><p id="upload-message" class="message" role="status"></p></form></div>
+        <div class="panel"><div class="panel-head"><h3>Uploaded image URL</h3></div><p id="uploaded-url" class="muted">Your uploaded URL will appear here.</p><button id="copy-url" class="btn secondary" disabled>Copy URL</button></div>
+      </section>
+      <footer class="app-footer">Green Focus Organization · Content Management System <span>Keep your community story growing.</span></footer>
+    </main>
+  </div>
+
+  <dialog id="content-dialog" class="editor-dialog">
+    <form id="content-form" method="dialog">
+      <div class="dialog-head"><div><p class="eyebrow">CONTENT EDITOR</p><h2 id="dialog-title">Add content</h2></div><button type="button" id="close-dialog" class="icon-btn" aria-label="Close">×</button></div>
+      <input id="record-id" type="hidden">
+      <label for="content-key">Content key <span>Unique identifier used in HTML</span></label><input id="content-key" required maxlength="120" pattern="[A-Za-z0-9._-]+" placeholder="home.hero.title">
+      <div class="form-grid"><div><label for="content-page">Website page</label><select id="content-page"><option value="home">Home</option><option value="about">About</option><option value="causes">Causes</option><option value="events">Events</option><option value="team">Team</option><option value="blog">Blog</option><option value="gallery">Gallery</option><option value="contact">Contact</option><option value="donate">Donate</option><option value="global">Global / shared</option></select></div><div><label for="content-type">Content type</label><select id="content-type"><option value="text">Text</option><option value="image">Image URL</option><option value="link">Link URL</option><option value="background">Background image URL</option></select></div></div>
+      <label for="content-value">Content value</label><textarea id="content-value" rows="5" required placeholder="Enter the text or URL to display"></textarea>
+      <label class="check-label"><input id="content-published" type="checkbox" checked> Publish this content</label>
+      <p id="editor-message" class="message" role="status"></p>
+      <div class="dialog-actions"><button type="button" id="cancel-dialog" class="btn secondary">Cancel</button><button id="save-content" type="submit" class="btn primary">Save content</button></div>
+    </form>
+  </dialog>
+  <script src="config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
